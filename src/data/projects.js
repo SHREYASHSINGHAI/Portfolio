@@ -39,11 +39,11 @@ export const projects = [
     tags: ["Speech-to-Text", "LLMs", "Automation"],
     techStack: ["Python", "pydub", "LLMs", "Notion API", "Slack API"],
     github: "https://github.com/SHREYASHSINGHAI/Meet-Summarizer",
-    demo: null,
+    demo: "https://meet-summarizerr.streamlit.app/",
     featured: true,
     images: ["/images/img_meet_summarizer_1779698341218.png"],
     date: "2025",
-    status: "Completed",
+    status: "Live",
     color: "from-cyan-500/20 to-teal-500/10",
     border: "hover:border-cyan-500/50"
   },
