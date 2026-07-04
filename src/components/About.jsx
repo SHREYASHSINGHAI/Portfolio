@@ -147,7 +147,7 @@ const About = () => {
                         </p>
 
                         <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 mb-6">
-                            <StatCard label="Projects Deployed" value={3} suffix="+" to="/deployments" />
+                            <StatCard label="Projects Deployed" value={5} suffix="+" to="/deployments" />
                             <StatCard label="GitHub Repos" value={19} href="https://github.com/SHREYASHSINGHAI" />
                             <StatCard label="ML Models Built" value={5} suffix="+" />
                             <StatCard label="Certifications" value={3} />
