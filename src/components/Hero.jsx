@@ -102,7 +102,7 @@ const Hero = () => {
                         Explore Systems <ArrowRight className="w-4 h-4" />
                     </a>
                     <a
-                        href="/SHREYASHSINGHAI_RESUME.docx"
+                        href="/Shreyash_Singhai_Resume.pdf"
                         download
                         className="flex items-center gap-2 px-6 py-3 bg-white/[0.05] border border-white/10 text-white font-medium rounded-lg hover:bg-white/10 transition-colors"
                     >

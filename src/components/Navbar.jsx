@@ -47,7 +47,7 @@ const Navbar = () => {
 
                     <div className="hidden md:flex items-center">
                         <a
-                            href="/SHREYASH_SINGHAI_RESUME.docx"
+                            href="/Shreyash_Singhai_Resume.pdf"
                             download
                             className="text-sm bg-white text-black px-4 py-2 rounded-lg font-medium hover:bg-gray-200 transition-all shadow-sm"
                         >
@@ -86,7 +86,7 @@ const Navbar = () => {
                         ))}
                         <div className="h-px w-full bg-white/5 my-2"></div>
                         <a
-                            href="/SHREYASH_SINGHAI_RESUME.docx"
+                            href="/Shreyash_Singhai_Resume.pdf"
                             download
                             className="bg-white text-black px-4 py-3 rounded-lg font-medium text-center hover:bg-gray-200 transition-all text-sm"
                         >
