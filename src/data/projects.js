@@ -16,13 +16,13 @@ export const projects = [
     border: "hover:border-orange-500/50"
   },
   {
-    id: "vector-db",
-    title: "Vector Database",
-    description: "A custom vector database implementation built from scratch using the all-MiniLM-L6-v2 transformer model. It efficiently processes raw text documents, converts them into high-dimensional vector embeddings, and implements a cosine similarity search mechanism to enable extremely fast and accurate semantic querying.",
+    id: "terminal-rag",
+    title: "Terminal-RAG",
+    description: "A lightweight, local Retrieval-Augmented Generation (RAG) system built entirely in Python. It uses a custom vector database, a small-scale generative model (Qwen 2.5), and a sentence embedding model (all-MiniLM-L6-v2) to perform semantic search and generate context-aware answers from local documents, optimized to run on hardware with under 4GB of RAM.",
     type: "engineered",
-    tags: ["Vector Database", "Semantic Search", "NLP"],
+    tags: ["RAG System", "Semantic Search", "NLP"],
     techStack: ["Python", "Transformers", "Sentence Transformers", "NumPy"],
-    github: "https://github.com/SHREYASHSINGHAI/VectorDB",
+    github: "https://github.com/SHREYASHSINGHAI/Terminal-RAG",
     demo: null,
     featured: true,
     images: ["/images/img_vectordb_1779699419110.png"],
@@ -80,8 +80,8 @@ export const projects = [
     border: "hover:border-purple-500/50"
   },
   {
-    id: "real-estate-predictor",
-    title: "Real Estate Predictor",
+    id: "real-estate-price-predictor",
+    title: "Real Estate Price Predictor",
     description: "A Machine Learning-based Real Estate Price Predictor that estimates property value (price per square meter) based on key parameters like the house's age, distance to the nearest MRT station, and the number of nearby convenience stores. It serves as a data-driven tool to forecast pricing dynamics and optimize real estate investment decisions.",
     type: "engineered",
     tags: ["Predictive ML", "Data Analysis", "Regression"],
@@ -129,8 +129,8 @@ export const projects = [
   },
   {
     id: "lead-intelligence",
-    title: "Lead Intelligence",
-    description: "An AI-powered B2B lead scoring pipeline. This automation tool enriches CRM data with insights scraped or retrieved via APIs (like PubMed), processes the information using custom LLM logic, and surfaces high-intent prospects. Designed to save hours of manual sales prospecting, the results are visualized through an interactive Streamlit dashboard.",
+    title: "PubMed Lead Enrichment & Scoring Pipeline",
+    description: "An automated B2B lead enrichment and scoring pipeline. This automation tool enriches CRM data with insights scraped or retrieved via APIs (like PubMed), processes the information using custom LLM logic, and surfaces high-intent prospects. Designed to save hours of manual sales prospecting, the results are visualized through an interactive Streamlit dashboard.",
     type: "prototype",
     tags: ["Data Engineering", "Web Scraping", "Streamlit"],
     techStack: ["Python", "Streamlit", "Pandas", "REST APIs"],

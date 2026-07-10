@@ -7,7 +7,6 @@ import Skills from '../components/Skills';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
-import Cursor from '../components/Cursor';
 import ScrollProgress from '../components/ScrollProgress';
 import SplashScreen from '../components/SplashScreen';
 import FlowingBackground from '../components/FlowingBackground';
@@ -20,7 +19,6 @@ const Home = () => {
             <SplashScreen onDone={() => setSplashDone(true)} />
             {splashDone && (
                 <>
-                    <Cursor />
                     <ScrollProgress />
                     <div className="min-h-screen text-white relative">
                         <FlowingBackground />

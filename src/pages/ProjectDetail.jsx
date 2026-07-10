@@ -3,7 +3,6 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projects';
 import { ArrowLeft, Code, ExternalLink, Calendar, Tag } from 'lucide-react';
-import Cursor from '../components/Cursor';
 import FlowingBackground from '../components/FlowingBackground';
 
 const ProjectDetail = () => {
@@ -31,7 +30,6 @@ const ProjectDetail = () => {
 
     return (
         <>
-            <Cursor />
             <div className="min-h-screen text-white relative bg-charcoal overflow-hidden">
                 <FlowingBackground />
                 {/* Noise overlay */}
