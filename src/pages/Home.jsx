@@ -33,10 +33,10 @@ const Home = () => {
                         <Navbar />
                         <main>
                             <Hero />
-                            <EngineeringPhilosophy />
                             <About />
                             <Skills />
                             <Projects />
+                            <EngineeringPhilosophy />
                             <Contact />
                         </main>
                         <Footer />

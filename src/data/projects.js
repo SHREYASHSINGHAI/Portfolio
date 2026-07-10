@@ -48,12 +48,12 @@ export const projects = [
     border: "hover:border-cyan-500/50"
   },
   {
-    id: "inventory-ai-agent",
-    title: "Inventory AI Agent",
-    description: "The Inventory Management AI Agent is a conversational assistant designed to simplify and automate inventory tracking. Activated directly via chat, the agent allows users to effortlessly manage stock updates and queries in real time. Built to seamlessly integrate with inventory systems, it provides a fast and intuitive alternative to manual entry, reducing friction in operations.",
-    type: "engineered",
-    tags: ["LLMs", "Automation", "Chatbots"],
-    techStack: ["Python", "LangChain", "OpenAI", "PostgreSQL"],
+    id: "stocktalk",
+    title: "StockTalk",
+    description: "StockTalk is a conversational B2B inventory assistant designed to simplify and automate stock tracking. Activated directly via chat, the agent allows users to effortlessly manage stock updates, perform unit conversions, and query quantities in real time. The glassmorphic dashboard is synced dynamically with Firebase Firestore.",
+    type: "prototype",
+    tags: ["AI Agent", "Real-time DB", "Vercel AI SDK"],
+    techStack: ["Next.js", "Tailwind CSS", "Gemini API", "Vercel AI SDK", "Firebase"],
     github: "https://github.com/SHREYASHSINGHAI/inventory-Management-AI-Agent.git",
     demo: "https://inventory-management-ai-agent.vercel.app/",
     featured: true,
