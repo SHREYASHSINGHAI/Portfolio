@@ -36,7 +36,7 @@ const SAMPLE_DIFFS = [
     title: 'Critical Vulnerability Diff',
     badge: 'P0 Security Alert',
     badgeColor: 'text-amber-400 border-amber-500/30 bg-amber-500/10',
-    description: 'Exposed live payment gateway secret key and unescaped raw SQL query concatenation.',
+    description: 'Hardcoded credentials in source code and unescaped raw SQL query concatenation.',
     inputTokens: 890,
     prunedTokens: 215,
     latency: '0.81 ms',
@@ -47,7 +47,7 @@ const SAMPLE_DIFFS = [
     lines: [
       { num: 12, type: 'neutral', text: ' class AccountService:' },
       { num: 13, type: 'del-trivial', text: '-    # Staging credentials placeholder', stripped: true },
-      { num: 14, type: 'add-vuln', text: '+    STRIPE_API_KEY = "mock_api_secret_key_example_only"', highRisk: true, reason: 'EXPOSED_API_SECRET' },
+      { num: 14, type: 'add-vuln', text: '+    AUTH_CREDENTIAL = "mock_token_redacted_for_demo"', highRisk: true, reason: 'EXPOSED_API_SECRET' },
       { num: 15, type: 'neutral', text: '     def get_user_records(self, account_id: str):' },
       { num: 16, type: 'del-trivial', text: '-        cursor.execute("SELECT * FROM accounts WHERE id = %s", (account_id,))', stripped: true },
       { num: 17, type: 'add-vuln', text: '+        query = f"SELECT * FROM accounts WHERE id = \'{account_id}\'"', highRisk: true, reason: 'SQL_INJECTION_VECTOR' },
