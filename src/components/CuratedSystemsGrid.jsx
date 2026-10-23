@@ -42,7 +42,7 @@ export default function CuratedSystemsGrid({ projects }) {
   };
 
   return (
-    <section id="systems" className="py-24 bg-[#080C14] border-t border-white/10 relative">
+    <section id="systems" className="py-24 bg-transparent border-t border-white/10 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Section Header */}

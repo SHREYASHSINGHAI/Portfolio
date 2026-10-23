@@ -160,7 +160,7 @@ Location: Bhopal, India (23°14'N 77°02'E) · Available for global remote / on-
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#080C14] border-t border-white/10 relative">
+    <section id="contact" className="py-24 bg-transparent border-t border-white/10 relative">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Section Header */}

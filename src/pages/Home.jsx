@@ -48,19 +48,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#080C14] text-slate-100 font-sans selection:bg-cyan-500/20 selection:text-cyan-300 relative overflow-x-hidden">
-      {/* Blueprint Grid Lines Texture */}
-      <div
-        className="fixed inset-0 pointer-events-none z-0 opacity-40"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(148, 163, 184, 0.04) 1px, transparent 1px)
-          `,
-          backgroundSize: '32px 32px',
-        }}
-      />
-
+    <div className="min-h-screen bg-transparent text-slate-100 font-sans selection:bg-cyan-500/20 selection:text-cyan-300 relative overflow-x-hidden">
       {/* Global Status Bar */}
       <GlobalStatusBar onOpenStudio={handleOpenStudio} />
 

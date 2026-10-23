@@ -32,10 +32,10 @@ export default function HeroObservatory({ onOpenStudio }) {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[92vh] flex flex-col justify-center pt-24 pb-16 overflow-hidden bg-[#080C14]">
+    <section className="relative w-full min-h-[92vh] flex flex-col justify-center pt-24 pb-16 overflow-hidden bg-transparent">
       {/* Blueprint Grid Background with subtle radial fade */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-60"
+        className="absolute inset-0 pointer-events-none opacity-20"
         style={{
           backgroundImage: `
             linear-gradient(to right, rgba(148, 163, 184, 0.05) 1px, transparent 1px),
