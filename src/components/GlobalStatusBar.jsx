@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX, Terminal, FileText, ExternalLink, Menu, X, Clock } from 'lucide-react';
 import { sound } from '../utils/sound';
 
 export default function GlobalStatusBar({ onOpenStudio }) {
+  const navigate = useNavigate();
+  const location = useLocation();
   const [isMuted, setIsMuted] = useState(() => sound.isMuted());
   const [timeUtc, setTimeUtc] = useState('');
   const [timeIst, setTimeIst] = useState('');
@@ -59,11 +62,39 @@ export default function GlobalStatusBar({ onOpenStudio }) {
   };
 
   const navAnchors = [
-    { label: '[01 : SYSTEMS]', href: '#systems' },
-    { label: '[02 : BENCHMARKS]', href: '#benchmarks' },
-    { label: '[03 : CREDENTIALS]', href: '#credentials' },
-    { label: '[04 : CONTACT]', href: '#contact' },
+    { label: '[01 : SYSTEMS]', href: '/projects' },
+    { label: '[02 : BENCHMARKS]', href: '/#benchmarks' },
+    { label: '[03 : CREDENTIALS]', href: '/#credentials' },
+    { label: '[04 : CONTACT]', href: '/#contact' },
   ];
+
+  const handleNavClick = (e, item) => {
+    e.preventDefault();
+    sound.playClick();
+    if (item.href.startsWith('/#')) {
+      const hash = item.href.replace('/#', '');
+      if (location.pathname === '/') {
+        const el = document.getElementById(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        navigate(`/#${hash}`);
+      }
+    } else {
+      navigate(item.href);
+    }
+  };
+
+  const handleLogoClick = (e) => {
+    e.preventDefault();
+    sound.playClick();
+    if (location.pathname === '/') {
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <header className="fixed top-0 inset-x-0 z-40 bg-[#080C14]/90 backdrop-blur-xl border-b border-white/10 select-none">
@@ -72,8 +103,8 @@ export default function GlobalStatusBar({ onOpenStudio }) {
         {/* Left: Monospaced developer tag */}
         <div className="flex items-center gap-3 flex-shrink-0">
           <a
-            href="#"
-            onClick={() => sound.playClick()}
+            href="/"
+            onClick={handleLogoClick}
             className="flex items-center gap-2 group hover:text-white transition-colors whitespace-nowrap"
           >
             <span className="w-2 h-2 rounded-sm bg-cyan-400 group-hover:scale-125 transition-transform shadow-[0_0_8px_#06b6d4]"></span>
@@ -87,7 +118,7 @@ export default function GlobalStatusBar({ onOpenStudio }) {
             <a
               key={item.label}
               href={item.href}
-              onClick={() => sound.playClick()}
+              onClick={(e) => handleNavClick(e, item)}
               className="px-2.5 py-1 text-slate-400 hover:text-cyan-300 hover:bg-white/[0.03] rounded transition-colors text-[11px] tracking-wide"
             >
               {item.label}
@@ -170,9 +201,9 @@ export default function GlobalStatusBar({ onOpenStudio }) {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => {
-                  sound.playClick();
+                onClick={(e) => {
                   setMobileMenuOpen(false);
+                  handleNavClick(e, item);
                 }}
                 className="py-2 px-3 rounded hover:bg-white/5 text-slate-300 hover:text-cyan-300"
               >

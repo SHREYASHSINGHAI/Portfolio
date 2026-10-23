@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GlobalStatusBar from '../components/GlobalStatusBar';
 import HeroObservatory from '../components/HeroObservatory';
-import CuratedSystemsGrid from '../components/CuratedSystemsGrid';
 import QuantitativeEvaluation from '../components/QuantitativeEvaluation';
 import VerifiedCredentials from '../components/VerifiedCredentials';
 import CommandLineTerminal from '../components/CommandLineTerminal';
@@ -19,13 +18,19 @@ export default function Home() {
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-    // If page was loaded with a hash (e.g. #contact), clear it so the site always opens at Hero
-    if (window.location.hash) {
-      window.history.replaceState(null, '', window.location.pathname);
-      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    // If navigating with a specific hash (e.g. #benchmarks or #credentials), scroll to it smoothly
+    if (window.location.hash && window.location.hash !== '#contact') {
+      const id = window.location.hash.replace('#', '');
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 120);
+        return;
+      }
     }
+
+    // Default: Always ensure page opens at the Hero section
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   }, []);
 
   const handleOpenStudio = () => {
@@ -64,10 +69,7 @@ export default function Home() {
         {/* Component 2: Hero Section (The Systems Architect Ledger) */}
         <HeroObservatory onOpenStudio={handleOpenStudio} />
 
-        {/* Component 3: Curated Systems Grid with Integrated Playgrounds */}
-        <CuratedSystemsGrid projects={projects} />
-
-        {/* Component 4: Quantitative Evaluation & Research Foundations */}
+        {/* Component 3: Quantitative Evaluation & Research Foundations */}
         <QuantitativeEvaluation />
 
         {/* Component 5: Verified Credentials & ROI Leadership */}

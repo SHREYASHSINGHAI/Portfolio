@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react';
-import { Eye, ArrowDown, Radio, Activity, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Eye, ArrowDown, ArrowRight, Radio, Activity, Sparkles } from 'lucide-react';
 import { sound } from '../utils/sound';
 
 export default function ObservatoryDome({ onNavigateToProjects }) {
+  const navigate = useNavigate();
   const containerRef = useRef(null);
   const [mouseOffset, setMouseOffset] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
@@ -44,11 +46,10 @@ export default function ObservatoryDome({ onNavigateToProjects }) {
       return;
     }
 
-    const systemsSection = document.getElementById('systems');
-    if (systemsSection) {
-      systemsSection.scrollIntoView({ behavior: 'smooth' });
+    if (targetId) {
+      navigate(`/projects#project-${targetId}`);
     } else {
-      window.location.hash = '#systems';
+      navigate('/projects');
     }
   };
 
@@ -421,8 +422,8 @@ export default function ObservatoryDome({ onNavigateToProjects }) {
         {/* Pulsing Interactive CTA Button */}
         <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-cyan-500/15 group-hover:bg-cyan-500 border border-cyan-500/40 group-hover:border-cyan-300 text-cyan-300 group-hover:text-black font-bold text-[11px] transition-all duration-300 shadow-[0_0_15px_rgba(6,182,212,0.15)] group-hover:shadow-[0_0_25px_rgba(6,182,212,0.5)]">
           <Eye className="w-3.5 h-3.5" />
-          <span>CLICK TO ENTER OBSERVATORY // VIEW PROJECTS</span>
-          <ArrowDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+          <span>CLICK TO ENTER OBSERVATORY // VIEW SYSTEMS</span>
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </div>
       </div>
     </div>

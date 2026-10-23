@@ -1,25 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Terminal, ArrowDown, ExternalLink, ShieldCheck, Cpu, Zap, Activity, GitCommit } from 'lucide-react';
+import { Terminal, ArrowDown, Sparkles, ShieldCheck, Cpu, Zap, Activity } from 'lucide-react';
 import { sound } from '../utils/sound';
 import ObservatoryDome from './ObservatoryDome';
 
 export default function HeroObservatory({ onOpenStudio }) {
+  const navigate = useNavigate();
   const [activeLogIndex, setActiveLogIndex] = useState(0);
 
   const handleNavigateToProjects = (targetId) => {
     if (targetId) {
-      const cardEl = document.getElementById(`project-${targetId}`);
-      if (cardEl) {
-        cardEl.scrollIntoView({ behavior: 'smooth' });
-        return;
-      }
-    }
-    const systemsEl = document.getElementById('systems');
-    if (systemsEl) {
-      systemsEl.scrollIntoView({ behavior: 'smooth' });
+      navigate(`/projects#project-${targetId}`);
     } else {
-      window.location.hash = '#systems';
+      navigate('/projects');
     }
   };
 
@@ -203,12 +197,21 @@ export default function HeroObservatory({ onOpenStudio }) {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono"
         >
-          <a
-            href="#systems"
+          <Link
+            to="/projects"
             onClick={() => sound.playClick()}
-            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-all shadow-[0_0_20px_rgba(6,182,212,0.3)] tracking-wide"
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 text-black font-bold hover:bg-cyan-400 transition-all shadow-[0_0_25px_rgba(6,182,212,0.35)] tracking-wide group"
           >
-            <span>EXPLORE CURATED SYSTEMS</span>
+            <Sparkles className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+            <span>EXPLORE CURATED SYSTEMS ❯</span>
+          </Link>
+
+          <a
+            href="#benchmarks"
+            onClick={() => sound.playClick()}
+            className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#0F172A] border border-white/15 text-slate-200 font-bold hover:border-cyan-500/50 hover:bg-[#1E293B] transition-all tracking-wide"
+          >
+            <span>VIEW BENCHMARKS</span>
             <ArrowDown className="w-4 h-4" />
           </a>
 
