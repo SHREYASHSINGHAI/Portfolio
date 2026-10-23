@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import GlobalStatusBar from '../components/GlobalStatusBar';
 import HeroObservatory from '../components/HeroObservatory';
 import CuratedSystemsGrid from '../components/CuratedSystemsGrid';
@@ -13,6 +13,20 @@ import { sound } from '../utils/sound';
 export default function Home() {
   const [isStudioOpen, setIsStudioOpen] = useState(false);
   const [projects, setProjects] = useState(getStoredProjects);
+
+  useEffect(() => {
+    // Prevent browser from restoring scroll position to the bottom or contact section
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+    // If page was loaded with a hash (e.g. #contact), clear it so the site always opens at Hero
+    if (window.location.hash) {
+      window.history.replaceState(null, '', window.location.pathname);
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, []);
 
   const handleOpenStudio = () => {
     sound.playClick();

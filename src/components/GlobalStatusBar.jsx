@@ -61,9 +61,8 @@ export default function GlobalStatusBar({ onOpenStudio }) {
   const navAnchors = [
     { label: '[01 : SYSTEMS]', href: '#systems' },
     { label: '[02 : BENCHMARKS]', href: '#benchmarks' },
-    { label: '[03 : ARCHITECTURE]', href: '#architecture' },
-    { label: '[04 : CREDENTIALS]', href: '#credentials' },
-    { label: '[05 : CONTACT]', href: '#contact' },
+    { label: '[03 : CREDENTIALS]', href: '#credentials' },
+    { label: '[04 : CONTACT]', href: '#contact' },
   ];
 
   return (

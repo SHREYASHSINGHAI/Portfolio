@@ -57,6 +57,12 @@ export default function CuratedSystemsGrid({ projects }) {
             <h2 className="text-4xl sm:text-5xl font-sans font-bold text-white tracking-tight">
               Production AI <span className="text-slate-500">Observatory.</span>
             </h2>
+            <div className="flex items-center gap-3 mt-2.5">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-300 font-mono text-xs">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <span>OBSERVATION DECK ACTIVE // {projects.length} SYSTEMS DEPLOYED</span>
+              </span>
+            </div>
             <p className="text-slate-400 font-sans text-sm sm:text-base max-w-2xl mt-3 leading-relaxed">
               Real open-source engineering systems categorized across deterministic pre-filtering, air-gapped SLM retrieval, and multi-agent workflow automation.
             </p>
@@ -127,6 +133,7 @@ export default function CuratedSystemsGrid({ projects }) {
             return (
               <motion.div
                 key={project.id}
+                id={`project-${project.id}`}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}

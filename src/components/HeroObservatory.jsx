@@ -2,9 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, ArrowDown, ExternalLink, ShieldCheck, Cpu, Zap, Activity, GitCommit } from 'lucide-react';
 import { sound } from '../utils/sound';
+import ObservatoryDome from './ObservatoryDome';
 
 export default function HeroObservatory({ onOpenStudio }) {
   const [activeLogIndex, setActiveLogIndex] = useState(0);
+
+  const handleNavigateToProjects = (targetId) => {
+    if (targetId) {
+      const cardEl = document.getElementById(`project-${targetId}`);
+      if (cardEl) {
+        cardEl.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+    }
+    const systemsEl = document.getElementById('systems');
+    if (systemsEl) {
+      systemsEl.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.location.hash = '#systems';
+    }
+  };
 
   const telemetryLogs = [
     { time: '11:34:02.108', sys: 'SENTINEL', msg: 'AST pre-filter stripped 682 whitespace tokens in 0.74 ms. Git push authorized.' },
@@ -73,13 +90,23 @@ export default function HeroObservatory({ onOpenStudio }) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-          className="text-base sm:text-xl text-slate-400 font-normal max-w-3xl leading-relaxed tracking-normal mb-12"
+          className="text-base sm:text-xl text-slate-400 font-normal max-w-3xl leading-relaxed tracking-normal mb-10"
         >
           Bridging experimental notebooks and deterministic production software through{' '}
           <span className="text-slate-200 font-medium">token economics</span>,{' '}
           <span className="text-cyan-300 font-medium">low-latency pre-filtering</span>, and{' '}
           <span className="text-emerald-300 font-medium">offline retrieval benchmarking</span>.
         </motion.p>
+
+        {/* The Production AI Observatory Centerpiece Dome & Optical Array */}
+        <motion.div
+          initial={{ opacity: 0, y: 25, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+          className="w-full max-w-4xl mb-12"
+        >
+          <ObservatoryDome onNavigateToProjects={handleNavigateToProjects} />
+        </motion.div>
 
         {/* Key Telemetry Ledger (Horizontal Data Strip) */}
         <motion.div

@@ -23,10 +23,17 @@ export default function CommandLineTerminal({ onOpenStudio }) {
       text: 'Inbound Systems Terminal v2.4 initialized. Type "help" for executable telemetry commands.',
     },
   ]);
-  const bottomRef = useRef(null);
+  const terminalOutputRef = useRef(null);
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+    if (terminalOutputRef.current) {
+      terminalOutputRef.current.scrollTop = terminalOutputRef.current.scrollHeight;
+    }
   }, [terminalHistory]);
 
   const copyEmail = () => {
@@ -161,7 +168,7 @@ Location: Bhopal, India (23°14'N 77°02'E) · Available for global remote / on-
           <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-[#0F172A] border border-white/10">
             <Terminal className="w-3.5 h-3.5 text-cyan-400" />
             <span className="text-cyan-400 font-mono text-xs uppercase tracking-[0.2em]">
-              05 // COMMAND-LINE INBOUND TERMINAL
+              04 // COMMAND-LINE INBOUND TERMINAL
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-sans font-bold text-white tracking-tight">
@@ -233,7 +240,10 @@ Location: Bhopal, India (23°14'N 77°02'E) · Available for global remote / on-
           </div>
 
           {/* Terminal Output Stream */}
-          <div className="flex-1 p-4 overflow-y-auto space-y-2 select-text leading-relaxed">
+          <div
+            ref={terminalOutputRef}
+            className="flex-1 p-4 overflow-y-auto space-y-2 select-text leading-relaxed"
+          >
             {terminalHistory.map((item, idx) => {
               if (item.type === 'user') {
                 return (
@@ -262,7 +272,6 @@ Location: Bhopal, India (23°14'N 77°02'E) · Available for global remote / on-
                 </div>
               );
             })}
-            <div ref={bottomRef} />
           </div>
 
           {/* Input Prompt */}

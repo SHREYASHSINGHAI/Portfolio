@@ -84,7 +84,7 @@ export default function VerifiedCredentials() {
           <div className="flex items-center gap-3 mb-3">
             <span className="w-8 h-px bg-amber-400"></span>
             <span className="text-amber-400 font-mono text-xs uppercase tracking-[0.25em]">
-              04 // VERIFIED CREDENTIALS & ROI LEADERSHIP
+              03 // VERIFIED CREDENTIALS & ROI LEADERSHIP
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-sans font-bold text-white tracking-tight">
